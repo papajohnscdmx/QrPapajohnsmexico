@@ -1,55 +1,222 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#006341">
-  <title>Papa Johns México</title>
+  <title>Papa John's México</title>
+
   <style>
-    :root { --green: #006341; --dark: #004b32; --red: #c8102e; --text: #26332b; --muted: #5e6b62; }
+    :root {
+      --green: #006341;
+      --dark: #004b32;
+      --red: #c8102e;
+      --text: #26332b;
+      --muted: #5e6b62;
+    }
+
     * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px 16px; background: #f3f6f2; color: var(--text); font-family: Arial, Helvetica, sans-serif; }
-    main { width: min(100%, 460px); padding: 32px 24px 24px; border-radius: 20px; background: #fff; box-shadow: 0 12px 36px rgba(0,45,28,.12); text-align: center; }
-    .mark { display: grid; place-items: center; width: 58px; height: 58px; margin: 0 auto 14px; border-radius: 50%; background: var(--green); color: #fff; font-size: 24px; font-weight: 800; letter-spacing: -2px; }
-    h1 { margin: 0; color: var(--dark); font-size: clamp(24px, 6vw, 30px); }
-    p { color: var(--muted); line-height: 1.5; }
-    #status { min-height: 22px; font-size: 14px; }
-    nav { display: grid; gap: 11px; margin-top: 16px; }
-    a { display: block; padding: 16px 14px; border: 2px solid var(--green); border-radius: 10px; background: var(--green); color: #fff; font-weight: 700; text-decoration: none; }
-    a:hover, a:focus-visible { background: var(--dark); outline: 3px solid rgba(0,99,65,.2); outline-offset: 2px; }
-    a.web { background: #fff; color: var(--dark); border-color: #d6e1d9; }
-    a.web:hover, a.web:focus-visible { background: #f1f7f2; }
-    .footer { margin: 20px 0 0; font-size: 12px; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px 16px;
+      background: #f3f6f2;
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    main {
+      width: min(100%, 460px);
+      padding: 32px 24px 24px;
+      border-radius: 20px;
+      background: white;
+      box-shadow: 0 12px 36px rgba(0,45,28,.12);
+      text-align: center;
+    }
+
+    .mark {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: var(--green);
+      color: white;
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--dark);
+      font-size: clamp(24px, 6vw, 30px);
+    }
+
+    p {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    #status {
+      min-height: 40px;
+      font-size: 14px;
+    }
+
+    nav {
+      display: grid;
+      gap: 11px;
+      margin-top: 16px;
+    }
+
+    a {
+      display: block;
+      padding: 16px 14px;
+      border: 2px solid var(--green);
+      border-radius: 10px;
+      background: var(--green);
+      color: white;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover, a:focus-visible {
+      background: var(--dark);
+      outline: 3px solid rgba(0,99,65,.2);
+    }
+
+    a.web {
+      background: white;
+      color: var(--dark);
+      border-color: #d6e1d9;
+    }
+
+    .footer {
+      margin: 20px 0 0;
+      font-size: 12px;
+    }
+
     .footer span { color: var(--red); }
   </style>
 </head>
+
 <body>
   <main>
+
     <div class="mark" aria-hidden="true">PJ</div>
-    <h1>Papa Johns México</h1>
-    <p id="status" role="status" aria-live="polite">Detectando tu dispositivo y abriendo el destino…</p>
-    <nav aria-label="Opciones de Papa Johns México">
-      <a href="https://apps.apple.com/us/app/papa-johns-pizza-m%C3%A9xico/id1531259742" target="_self">Abrir App Store para iPhone o iPad</a>
-      <a href="https://play.google.com/store/apps/details?id=com.abilitymobile.papajohns&amp;hl=en&amp;gl=US" target="_self">Abrir Google Play para Android</a>
-      <a class="web" href="https://papajohns.com.mx/" target="_self">Visitar página web</a>
+
+    <h1>Papa John's México</h1>
+
+    <p id="status" role="status" aria-live="polite">
+      Detectamos tu dispositivo.
+      Selecciona cómo deseas continuar.
+    </p>
+
+    <nav aria-label="Opciones Papa John's México">
+
+      <a id="openApp" href="#">
+        Abrir aplicación Papa John's
+      </a>
+
+      <a id="store" href="#">
+        Descargar aplicación
+      </a>
+
+      <a class="web"
+         href="https://papajohns.com.mx/">
+        Visitar página web
+      </a>
+
     </nav>
-    <p class="footer">Papa Johns <span>México</span></p>
+
+    <p class="footer">
+      Papa Johns <span>México</span>
+    </p>
+
   </main>
 
   <script>
     (function () {
-      const IOS_URL = 'https://apps.apple.com/us/app/papa-johns-pizza-m%C3%A9xico/id1531259742';
-      const ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.abilitymobile.papajohns&hl=en&gl=US';
-      const WEB_URL = 'https://papajohns.com.mx/';
-      const ua = navigator.userAgent || '';
-      const isIOS = /iPhone|iPad|iPod/i.test(ua) ||
-        (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
-      const isAndroid = /Android/i.test(ua);
-      const destination = isIOS ? IOS_URL : (isAndroid ? ANDROID_URL : WEB_URL);
 
-      // Al alojarse como página independiente, la redirección navega la ventana principal.
-      window.location.replace(destination);
-    }());
+      const IOS_URL =
+        'https://apps.apple.com/us/app/papa-johns-pizza-m%C3%A9xico/id1531259742';
+
+      const ANDROID_URL =
+        'https://play.google.com/store/apps/details?id=com.abilitymobile.papajohns';
+
+      const WEB_URL =
+        'https://papajohns.com.mx/';
+
+      const PACKAGE =
+        'com.abilitymobile.papajohns';
+
+      const ua = navigator.userAgent || '';
+
+      const isIOS =
+        /iPhone|iPad|iPod/i.test(ua) ||
+        (navigator.platform === 'MacIntel' &&
+         navigator.maxTouchPoints > 1);
+
+      const isAndroid = /Android/i.test(ua);
+
+      const openApp = document.getElementById('openApp');
+      const store = document.getElementById('store');
+      const status = document.getElementById('status');
+
+      if (isAndroid) {
+
+        status.textContent =
+          'Android detectado. Intenta abrir la aplicación instalada.';
+
+        // Intenta abrir la aplicación mediante un enlace HTTPS.
+        // Si Android no encuentra una actividad compatible,
+        // Chrome utiliza Google Play como alternativa.
+
+        const intentURL =
+          'intent://papajohns.com.mx/#Intent;' +
+          'scheme=https;' +
+          'package=' + PACKAGE + ';' +
+          'S.browser_fallback_url=' +
+          encodeURIComponent(ANDROID_URL) +
+          ';end';
+
+        openApp.href = intentURL;
+        openApp.textContent = '🍕 Abrir Papa John’s App';
+
+        store.href = ANDROID_URL;
+        store.textContent = 'Descargar desde Google Play';
+
+      } else if (isIOS) {
+
+        status.textContent =
+          'iPhone o iPad detectado. Selecciona una opción.';
+
+        openApp.href = IOS_URL;
+        openApp.textContent = 'Abrir App Store';
+
+        store.href = IOS_URL;
+        store.textContent = 'Descargar aplicación';
+
+      } else {
+
+        status.textContent =
+          'Bienvenido a Papa John’s México.';
+
+        openApp.href = WEB_URL;
+        openApp.textContent = 'Visitar Papa John’s';
+
+        store.href = ANDROID_URL;
+        store.textContent = 'Descargar aplicación Android';
+
+      }
+
+    })();
   </script>
+
 </body>
 </html>
+
